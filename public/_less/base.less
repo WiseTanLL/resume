@@ -1,3 +1,57 @@
 html{
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	body{
+		.all_main_full{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+		}
+		.main_full{
+			position: absolute;
+			min-width: 1024px;
+			min-height: 768px;
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			background-position: center center;
+		}
+
+		.container{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			.section{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 1;
+				visibility: visible;
+				overflow: hidden;
+				backface-visibility: hidden;
+				-webkit-backface-visibility: hidden;
+				-moz-backface-visibility: hidden;
+				-ms-backface-visibility: hidden;
+				transform-style: preserve-3d;
+				-webkit-transform-style: preserve-3d;
+				transform: translate3d(0,0,0);
+				-webkit-transform: translate3d(0,0,0);
+				-moz-transform: translate3d(0,0,0);
+				transition: transform 0.3s, opacity 0.3s;
+			}
+			.section.pt-page-rotatePushBottom{
+				transform-origin: 50% 100%;
+				transform: rotateX(90deg);
+				opacity: 0;
+			}
+			.section.pt-page-rotatePullTop{
+				transform-origin: 50% 0;
+				transform: rotateX(-90deg);
+				opacity: 0;
+			}
+		}
+	}
 }
