@@ -22,14 +22,18 @@ html{
 			position: absolute;
 			width: 100%;
 			height: 100%;
+			perspective: 1200px;//3d查看效果
+			-webkit-perspective: 1200px;
+			-moz-perspective: 1200px;
+			-o-perspective: 1200px;
 			.section{
 				position: absolute;
 				left: 0;
 				top: 0;
 				width: 100%;
 				height: 100%;
-				opacity: 1;
-				visibility: visible;
+				opacity: 0;
+				visibility: hidden;
 				overflow: hidden;
 				backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
@@ -40,18 +44,173 @@ html{
 				transform: translate3d(0,0,0);
 				-webkit-transform: translate3d(0,0,0);
 				-moz-transform: translate3d(0,0,0);
-				transition: transform 0.3s, opacity 0.3s;
 			}
 			.section.pt-page-rotatePushBottom{
 				transform-origin: 50% 100%;
-				transform: rotateX(90deg);
-				opacity: 0;
+				-webkit-transform-origin: 50% 100%;
+				-moz-transform-origin: 50% 100%;
+				-o-transform-origin: 50% 100%;
+				animation: rotatePushBottom 0.5s ease both;
+				-webkit-animation: rotatePushBottom 0.5s ease both;
+				-moz-animation: rotatePushBottom 0.5s ease both;
+				-o-animation: rotatePushBottom 0.5s ease both;
+				.pt-page-delay180;
 			}
 			.section.pt-page-rotatePullTop{
 				transform-origin: 50% 0;
-				transform: rotateX(-90deg);
-				opacity: 0;
+				-webkit-transform-origin: 50% 0;
+				-moz-transform-origin: 50% 0;
+				-o-transform-origin: 50% 0;
+				animation: rotatePulltTop 0.5s ease both;
+				-webkit-animation: rotatePulltTop 0.5s ease both;
+				-moz-animation: rotatePulltTop 0.5s ease both;
+				-o-animation: rotatePulltTop 0.5s ease both;
+				.pt-page-delay180;
 			}
+			.section.pt-current-page{
+				visibility: visible;
+				opacity: 1;
+				z-index: 5;
+			}
+			.pt-page-delay180{
+				animation-delay: 0.18s;
+				-webkit-animation-delay: 0.18s;
+				-moz-animation-delay: 0.18s;
+				-o-animation-delay: 0.18s;
+			}
+			@keyframes rotatePulltTop{
+				from{
+					opacity: 0;
+					transform: rotateX(-90deg);
+					-webkit-transform: rotateX(-90deg);
+					-moz-transform: rotateX(-90deg);
+					-o-transform: rotateX(-90deg);
+				}
+			}
+			@keyframes rotatePushBottom{
+				to{
+					opacity: 0;
+					transform: rotateX(90deg);
+					-webkit-transform: rotateX(90deg);
+					-moz-transform: rotateX(90deg);
+					-o-transform: rotateX(90deg);
+				}
+			}
+		}
+		.pt-page-left-top{
+			position: fixed;
+			padding: 0 5px;
+			border: 1px solid #3a9ab1;
+			margin: 30px;
+			cursor: pointer;
+			z-index: 9;
+			span{
+				display: block;
+				width: 23px;
+				border: 1px solid #fff;
+				margin: 7px 0;
+			}
+		}
+		.pt-page-black{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 9;
+			background-color: rgba(0, 0, 0, 0.5);
+			.select-no;
+			.main{
+				position: absolute;
+				top: 50%;
+				margin-top: -75px;
+				width: 100%;
+				padding: 5px;
+				text-align: center;
+				text-align: -webkit-center;
+				.item{
+					display: inline-block;
+					display: -webkit-inline-block;
+					padding: 50px;
+					border: 2px solid transparent;
+					cursor: default;
+					margin: 0 5px;
+					span{
+						color: #fffefd;
+					}
+				}
+				.item.active{
+					border-color: #52e4fe;
+				}
+			}
+		}
+		.pt-page-right{
+			position: fixed;
+			padding: 10px;
+			right: 20px;
+			top: 50%;
+			margin-top: -36px;
+			span{
+				display: block;
+				width: 23px;
+				border-width: 1px;
+				border-style: solid;
+				border-color: #fff;
+				background-color: #fff;
+				margin: 8px 0;
+				transition: width 0.3s ease both, border-color 0.3s ease both;
+				-webkit-transition: width 0.3s ease both, border-color 0.3s ease both;
+				-moz-transition: width 0.3s ease both, border-color 0.3s ease both;
+				-o-transition: width 0.3s ease both, border-color 0.3s ease both;
+			}
+			span.active{
+				width: 26px;
+				border-color: #5df1ff;
+			}
+		}
+		.pt-close{
+			position: absolute;
+			width: 35px;
+			height: 36px;
+			margin: 30px;
+			cursor: pointer;
+			background-color: #58f1ff;
+		}
+		.pt-close:before,.pt-close:after{
+			position: absolute;
+			content: ' ';
+			width: 18px;
+			border-top: 1px solid #fff;
+			margin-left: 8.5px;
+			margin-top: 17px;
+			transform-origin: center;
+			-webkit-transform-origin: center;
+			-moz-transform-origin: center;
+			-o-transform-origin: center;
+		}
+		.pt-close:before{
+			transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-o-transform: rotate(45deg);
+		}
+		.pt-close:after{
+			transform: rotate(-45deg);
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-o-transform: rotate(-45deg);
+		}
+		.font-size24{
+			font-size: 24px;
+		}
+		.text-align-right{
+			text-align: right;
+		}
+		.select-no{
+			user-select: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-o-user-select: none;
+			-ms-user-select: none;
+			-khtml-user-select: none;
 		}
 	}
 }
