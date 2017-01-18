@@ -1,6 +1,8 @@
 html{
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	body{
+		.select-no;
+		cursor: default;
 		.all_main_full{
 			position: absolute;
 			width: 100%;
@@ -22,6 +24,7 @@ html{
 			position: absolute;
 			width: 100%;
 			height: 100%;
+			overflow: hidden;
 			perspective: 1200px;//3d查看效果
 			-webkit-perspective: 1200px;
 			-moz-perspective: 1200px;
@@ -34,6 +37,7 @@ html{
 				height: 100%;
 				opacity: 0;
 				visibility: hidden;
+				display: none;
 				overflow: hidden;
 				backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
@@ -71,6 +75,7 @@ html{
 				visibility: visible;
 				opacity: 1;
 				z-index: 5;
+				display: block;
 			}
 			.pt-page-delay180{
 				animation-delay: 0.18s;
@@ -113,34 +118,110 @@ html{
 		}
 		.pt-page-black{
 			position: absolute;
+			display: none;
 			width: 100%;
 			height: 100%;
 			z-index: 9;
 			background-color: rgba(0, 0, 0, 0.5);
-			.select-no;
 			.main{
 				position: absolute;
 				top: 50%;
+				left: 50%;
 				margin-top: -75px;
-				width: 100%;
-				padding: 5px;
+				margin-left: -290px;
+				width: 580px;
 				text-align: center;
 				text-align: -webkit-center;
+				-webkit-padding-start: 0;
+				ul,li{
+					margin: 0;
+					padding: 0;
+				}
+				a{
+					position: relative;
+					float: left;
+					text-decoration: none;
+					text-align: right;
+					padding: 50px 30px;
+					border: 4px solid transparent;
+					display: block;
+					margin-right: 10px;
+				}
+				i{
+					font-style: normal;
+					color: #fffefd;
+				}
 				.item{
-					display: inline-block;
-					display: -webkit-inline-block;
-					padding: 50px;
-					border: 2px solid transparent;
 					cursor: default;
-					margin: 0 5px;
+					float: left;
 					span{
 						color: #fffefd;
+						display: block;
 					}
 				}
+				.item:nth-child(1){
+					animation: pushup 0.3s 0s linear both;
+				}
+				.item:nth-child(2){
+					animation: pushup 0.3s 0.1s linear both;
+				}
+				.item:nth-child(3){
+					animation: pushup 0.3s 0.2s linear both;
+				}
+				.item:nth-child(4){
+					animation: pushup 0.3s 0.3s linear both;
+				}
 				.item.active{
-					border-color: #52e4fe;
+					a{
+						border-color: #52e4fe;
+						i,span{
+							color: #58f1ff;
+						}
+					}
+				}
+				@keyframes pushup{
+					from{
+						margin-top: 30px;
+					}
+					to{
+						margin-top: 0;
+					}
 				}
 			}
+			.line{
+				position: absolute;
+				display: inline-block;
+				background-color: #fff;
+				transition: all 0.2s ease;
+				-webkit-transition: all 0.2s ease;
+			}
+			.line-top{
+				width: 0;
+				height: 4px;
+				left: -4px;
+				top: -4px;
+			}
+			.line-right{
+				width: 4px;
+				height: 0;
+				right: -4px;
+				top: -4px;
+			}
+			.line-bottom{
+				width: 0;
+				height: 4px;
+				bottom: -4px;
+				right: -4px;
+			}
+			.line-left{
+				width: 4px;
+				height: 0;
+				left: -4px;
+				bottom: -4px;
+			}
+		}
+		*{
+			list-style: none;
 		}
 		.pt-page-right{
 			position: fixed;
@@ -198,19 +279,121 @@ html{
 			-moz-transform: rotate(-45deg);
 			-o-transform: rotate(-45deg);
 		}
+		.font-size26{
+			font-size: 26px;
+		}
 		.font-size24{
 			font-size: 24px;
+		}
+		.font-size22{
+			font-size: 22px;
 		}
 		.text-align-right{
 			text-align: right;
 		}
-		.select-no{
-			user-select: none;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			-o-user-select: none;
-			-ms-user-select: none;
-			-khtml-user-select: none;
+	}
+	.bottom-left-resume{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding: 48px;
+		span:first-child{
+			color: #fff;
+			display: block;
+		}
+		span:last-child{
+			color: #50ddec;
+			font-size: 12px;
+			display: block;
 		}
 	}
+
+
+	#page1{
+		.img_back{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
+		.img-animate1{
+			animation: showImgA 0s linear both, rotateImgA 100s linear infinite;
+			-webkit-animation: showImgA 0s linear both, rotateImgA 100s linear infinite;
+			-moz-animation: showImgA 0s linear both, rotateImgA 100s linear infinite;
+			-o-animation: showImgA 0s linear both, rotateImgA 100s linear infinite;
+		}
+		.img-animate2{
+			animation: showImgA 1s 3s linear both, rotateImgB 50s 4s linear infinite;
+			-webkit-animation: showImgA 1s 3s linear both, rotateImgB 50s 4s linear infinite;
+			-moz-animation: showImgA 1s 3s linear both, rotateImgB 50s 4s linear infinite;
+			-o-animation: showImgA 1s 3s linear both, rotateImgB 50s 4s linear infinite;
+		}
+		.img-animate3{
+			animation: showImgA 1s 1s linear both, rotateImgC 20s 2s linear infinite;
+			-webkit-animation: showImgA 1s 1s linear both, rotateImgC 20s 2s linear infinite;
+			-moz-animation: showImgA 1s 1s linear both, rotateImgC 20s 2s linear infinite;
+			-o-animation: showImgA 1s 1s linear both, rotateImgC 20s 2s linear infinite;
+		}
+		.img-animate4{
+			animation: showImgA 1s 2s linear both, rotateImgD 30s 3s linear infinite;
+			-webkit-animation: showImgA 1s 2s linear both, rotateImgD 30s 3s linear infinite;
+			-moz-animation: showImgA 1s 2s linear both, rotateImgD 30s 3s linear infinite;
+			-o-animation: showImgA 1s 2s linear both, rotateImgD 30s 3s linear infinite;
+		}
+		@keyframes showImgA{
+			to{
+				opacity: 1;
+			}
+		}
+		@keyframes rotateImgA{
+			to{
+				transform: rotate(360deg);
+				-webkit-transform: rotate(360deg);
+				-moz-transform: rotate(360deg);
+				-o-transform: rotate(360deg);
+			}
+		}
+		@keyframes rotateImgB{
+			80%{
+				transform: rotate(10deg);
+				-webkit-transform: rotate(10deg);
+				-moz-transform: rotate(10deg);
+				-o-transform: rotate(10deg);
+			}
+			99%{
+				transform: rotate(-10deg);
+				-webkit-transform: rotate(-10deg);
+				-moz-transform: rotate(-10deg);
+				-o-transform: rotate(-10deg);
+			}
+		}
+		@keyframes rotateImgC{
+			to{
+				transform: rotate(-360deg);
+				-webkit-transform: rotate(-360deg);
+				-moz-transform: rotate(-360deg);
+				-o-transform: rotate(-360deg);
+			}
+		}
+		@keyframes rotateImgD{
+			to{
+				transform: rotate(360deg);
+				-webkit-transform: rotate(360deg);
+				-moz-transform: rotate(360deg);
+				-o-transform: rotate(360deg);
+			}
+		}
+	}
+	
+}
+.select-no{
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
 }

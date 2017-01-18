@@ -17,12 +17,14 @@ class IndexController extends ControllerBase
 			->addJs('js/base.js');
 
 		$this->view->imgs = (object)[ // 图片静态资源
-			'back1' => 'img/1_01_1.png',
-			'test' => 'img/1_02_1.jpg'
+			'back1' => 'img/1_0001.png'
 		];
 	}
     public function indexAction()
     {
-    	
+    	$this->assets->addJs('js/index.js');
+    	$this->view->fImgs = [
+    		'img/1_01_1.png','img/1_01_2.png','img/1_01_3.png','img/1_01_4.png','img/1_01_text.png'
+    	];
     }
 }
