@@ -8,7 +8,7 @@
     </head>
     <body>
     	<div id="all_main_full" class="all_main_full">
-    		<div id="main_full" class="main_full" style="background-image: url({{ imgs.back1 }});">
+    		<div id="main_full" class="main_full">
 	    		{{ content() }}
 	    	</div>
     	</div>

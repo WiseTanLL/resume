@@ -14,6 +14,8 @@ class IndexController extends ControllerBase
 			->addJs('lib/jquery/jquery-2.1.4.min.js')
 			->addCss('lib/bootstrap/bootstrap.min.css')
 			->addJs('lib/bootstrap/bootstrap.min.js')
+			->addJs('lib/Snap/Snap.svg.min.js')
+			->addJs('lib/particles/particles.min.js')
 			->addJs('js/base.js');
 
 		$this->view->imgs = (object)[ // 图片静态资源
@@ -22,9 +24,9 @@ class IndexController extends ControllerBase
 	}
     public function indexAction()
     {
-    	$this->assets->addJs('js/index.js');
     	$this->view->fImgs = [
-    		'img/1_01_1.png','img/1_01_2.png','img/1_01_3.png','img/1_01_4.png','img/1_01_text.png'
+    		'img/1_01_1.png','img/1_01_2.png','img/1_01_4.png','img/checkMore.png','img/2_01_1.png',
+    		'img/2_02_1.png','img/2_02_2.png','img/2_02_3.png','img/2_02_4.png','img/4_01_1.png'
     	];
     }
 }
